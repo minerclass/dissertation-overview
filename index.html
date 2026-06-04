@@ -62,7 +62,7 @@
     }
 
     .lead {
-      max-width: 790px;
+      max-width: 820px;
       margin: 22px 0 0;
       color: var(--muted);
       font-size: clamp(1.05rem, 2vw, 1.25rem);
@@ -95,12 +95,24 @@
       align-items: start;
     }
 
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 16px;
+      margin-top: 24px;
+    }
+
     section,
-    aside {
+    aside,
+    .card {
       border: 1px solid var(--line);
       border-radius: 8px;
       background: color-mix(in srgb, var(--panel) 94%, black);
       padding: 24px;
+    }
+
+    .card {
+      background: var(--panel-2);
     }
 
     h2 {
@@ -108,6 +120,13 @@
       font-size: clamp(1.35rem, 2.6vw, 2rem);
       line-height: 1.12;
       letter-spacing: 0;
+    }
+
+    h3 {
+      margin: 0 0 8px;
+      color: var(--text);
+      font-size: 1.08rem;
+      line-height: 1.2;
     }
 
     p {
@@ -119,7 +138,8 @@
       margin-bottom: 0;
     }
 
-    ul {
+    ul,
+    ol {
       margin: 0;
       padding-left: 1.15rem;
       color: var(--muted);
@@ -127,6 +147,22 @@
 
     li + li {
       margin-top: 10px;
+    }
+
+    .questions {
+      display: grid;
+      gap: 12px;
+      margin-top: 14px;
+    }
+
+    .question {
+      border-left: 3px solid var(--accent);
+      padding-left: 12px;
+      color: var(--muted);
+    }
+
+    .question strong {
+      color: var(--text);
     }
 
     .routes {
@@ -161,12 +197,13 @@
       font-size: 0.95rem;
     }
 
-    @media (max-width: 820px) {
+    @media (max-width: 900px) {
       header {
         padding-top: 40px;
       }
 
-      .grid {
+      .grid,
+      .cards {
         grid-template-columns: 1fr;
       }
     }
@@ -177,7 +214,7 @@
     <div class="shell">
       <p class="eyebrow">dissertation overview</p>
       <h1>Pedagogical friction in the age of generative AI.</h1>
-      <p class="lead">A public doorway into Micah Miner's dissertation research on how generative AI reshapes academic work, symbolic production, and the forms of resistance that learning still requires.</p>
+      <p class="lead">A public doorway into Micah Miner's dissertation research on how generative AI reshapes academic work, symbolic production, and the forms of cognitive, rhetorical, existential, and institutional resistance that learning still requires.</p>
       <nav aria-label="Related links">
         <a href="https://micahminer.com/dissertation-research/">micahminer.com dissertation page.</a>
         <a href="https://minerclass.github.io/dissertationquestionsbeta/dissertation-sites/">resource hub.</a>
@@ -189,21 +226,57 @@
   <main class="shell">
     <div class="grid">
       <section>
-        <h2>Research focus.</h2>
-        <p>This dissertation examines the educational consequences of generative AI as a symbolic technology. The central concern is not simply whether students use AI, but what happens when systems can produce language, summaries, arguments, and performances that look like learning while bypassing parts of the cognitive and interpretive labor learning depends on.</p>
-        <p>The project connects media ecology, learning sciences, and the concept of tertiary algorithmicity to study how educators and learners understand, resist, adopt, or redesign around AI's friction-reducing affordances.</p>
+        <h2>Current study focus.</h2>
+        <p>This dissertation examines how K-12 educators and school-system leaders understand, navigate, and respond to the friction-reducing affordances of generative AI in academic work. The central issue is not simply whether students use AI, but what happens when polished language, summaries, arguments, explanations, and performances can be produced without the interpretive and authorial labor those outputs have traditionally signaled.</p>
+        <p>The study begins from a practical pattern now visible in schools: student work can become cleaner and more fluent while student understanding becomes less secure. That problem cannot be reduced to cheating alone. It raises a learning-science and media-ecological question about the conditions under which students develop durable understanding.</p>
       </section>
 
       <aside>
         <h2>Core ideas.</h2>
         <ul>
-          <li>Pedagogical friction as productive resistance in learning environments.</li>
-          <li>Tertiary algorithmicity as a condition of machine-generated symbolic production.</li>
-          <li>Noetic, rhetorical, existential, and infrastructural forms of friction.</li>
-          <li>Design choices that preserve learning rather than merely accelerate output.</li>
+          <li>Tertiary algorithmicity as a media condition in which algorithmic systems both curate and generate symbolic content.</li>
+          <li>Algorithmic secondary orality as the transitional platform condition before generative AI.</li>
+          <li>Noetic, rhetorical, existential, and infrastructural forms of pedagogical friction.</li>
+          <li>The distinction between productive friction that supports learning and exclusionary friction that blocks access.</li>
         </ul>
       </aside>
     </div>
+
+    <section style="margin-top: 24px;">
+      <h2>Problem and purpose.</h2>
+      <p>K-12 educators are being asked to respond to generative AI without an empirically grounded framework for distinguishing AI uses that support learning from AI uses that bypass the cognitive and social conditions learning requires. Current guidance often emphasizes academic integrity, acceptable use, privacy, bias, and AI literacy. Those issues matter, but they do not fully address the learning processes at stake when students outsource drafting, synthesis, explanation, translation, revision, or argumentation to generative systems.</p>
+      <p>The purpose of the study is to investigate how educators, administrators, and system-level leaders make sense of pedagogical friction under conditions of generative AI, and what policy, assessment, professional learning, leadership, and governance conditions enable or constrain friction-preserving pedagogy.</p>
+    </section>
+
+    <div class="cards" aria-label="Study architecture">
+      <div class="card">
+        <h3>Case and unit of analysis.</h3>
+        <p>The case is K-12 educator and institutional sensemaking about pedagogical friction under conditions of generative AI. The primary unit of analysis is not AI use itself, but how educators and institutions judge whether friction should be preserved, reduced, or redesigned.</p>
+      </div>
+      <div class="card">
+        <h3>Participant perspectives.</h3>
+        <p>The primary study centers classroom-facing educators, building-level administrators, and district or system-level leaders because each group encounters AI through different instructional, supervisory, policy, and governance responsibilities.</p>
+      </div>
+      <div class="card">
+        <h3>Supporting strands.</h3>
+        <p>Retrospective university student accounts, exploratory quantitative patterns, secondary policy-readiness indicators, and a bounded AI-artifact comparison provide context without redefining the central case.</p>
+      </div>
+    </div>
+
+    <section style="margin-top: 24px;">
+      <h2>Research questions.</h2>
+      <div class="questions">
+        <div class="question"><strong>RQ1:</strong> How do K-12 classroom-facing educators understand and navigate the friction-reducing affordances of generative AI in academic work?</div>
+        <div class="question"><strong>RQ2:</strong> What institutional conditions, including policy, assessment design, professional development, leadership disposition, and governance structures, enable or constrain friction-preserving pedagogy?</div>
+        <div class="question"><strong>RQ3:</strong> How can the Pedagogical Friction Framework inform AI policy and practice in K-12 contexts?</div>
+      </div>
+    </section>
+
+    <section style="margin-top: 24px;">
+      <h2>Why it matters.</h2>
+      <p>The study shifts attention from academic integrity alone toward learning design. A friction-centered approach asks whether noetic, rhetorical, existential, and infrastructural conditions for learning are protected; whether supports remove exclusionary barriers without eliminating productive struggle; and whether teachers have institutional permission to redesign assessment around visible thinking.</p>
+      <p>This public overview is explanatory only. It should not be used to collect participant responses, store identifiable research data, or publish private dissertation materials. Recruitment, consent, participant data, and analysis records must remain private and IRB-governed.</p>
+    </section>
 
     <section style="margin-top: 24px;">
       <h2>Explore the public research ecosystem.</h2>
@@ -226,7 +299,7 @@
 
   <footer>
     <div class="shell">
-      Micah Miner · Public dissertation overview.
+      Micah Miner · Public dissertation overview. Updated with Chapter One proposal framing.
     </div>
   </footer>
 </body>
