@@ -1,6 +1,6 @@
 # Dissertation Overview
 
-Public GitHub Pages overview for Micah Miner's dissertation research.
+Public GitHub Pages overview for Micah Miner's current Chapters 1-3 dissertation proposal and its completed qualifying-paper foundation.
 
 Live site:
 
