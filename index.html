@@ -68,6 +68,31 @@
       font-size: clamp(1.05rem, 2vw, 1.25rem);
     }
 
+    /* Canonical-entry declaration. This page is the single front door; every other
+       public artifact is a companion. Keep this visible without interaction. */
+    .canonical-note {
+      max-width: 820px;
+      margin: 22px 0 0;
+      padding: 16px 18px;
+      border-left: 3px solid var(--accent);
+      background: var(--panel);
+      border-radius: 0 6px 6px 0;
+      color: var(--muted);
+      font-size: 0.98rem;
+    }
+
+    .canonical-note strong {
+      color: var(--text);
+    }
+
+    .canonical-date {
+      display: block;
+      margin-top: 8px;
+      font-family: "JetBrains Mono", Consolas, monospace;
+      font-size: 0.78rem;
+      color: var(--accent);
+    }
+
     nav {
       display: flex;
       flex-wrap: wrap;
@@ -212,9 +237,16 @@
 <body>
   <header>
     <div class="shell">
-      <p class="eyebrow">dissertation overview</p>
+      <p class="eyebrow">dissertation overview &middot; canonical front door</p>
       <h1>Pedagogical friction in the age of generative AI.</h1>
       <p class="lead">A living map of the public web artifacts supporting Micah Miner's dissertation, <em>Pedagogical Friction in the Age of Generative AI and Tertiary Algorithmicity</em>, including its conceptual foundation in the completed qualifying paper, the qualitative-dominant convergent mixed methods proposal grounded in constructivist qualitative inquiry, and the participant-facing instrument suite.</p>
+      <p class="canonical-note">
+        <strong>This page is the canonical entry point for the dissertation.</strong> Every other public
+        artifact &mdash; the dashboards, studios, companions, instruments, games, and conference
+        translations &mdash; is a companion to this one. Where wording differs between artifacts, the
+        controlling source is the submitted Chapters&nbsp;1&ndash;3, and this page reflects it.
+        <span class="canonical-date">Last aligned with the proposal: July&nbsp;30, 2026.</span>
+      </p>
       <nav aria-label="Related links">
         <a href="https://micahminer.com/dissertation-research/">micahminer.com dissertation page.</a>
         <a href="https://minerclass.github.io/diss-proposal-defense/">proposal defense studio.</a>
