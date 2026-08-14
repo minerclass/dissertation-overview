@@ -93,6 +93,41 @@
       color: var(--accent);
     }
 
+    /* Milestone status. The proposal is approved but data collection has not
+       begun, so this states both facts together and is the one block to edit
+       when the study advances a stage. */
+    .study-status {
+      max-width: 820px;
+      margin: 18px 0 0;
+      padding: 16px 18px;
+      border: 1px solid var(--line);
+      border-radius: 6px;
+      background: var(--panel-2);
+      color: var(--muted);
+      font-size: 0.98rem;
+    }
+
+    .status-flag {
+      display: inline-block;
+      margin-bottom: 8px;
+      padding: 3px 10px;
+      border-radius: 999px;
+      background: rgba(74, 222, 128, 0.14);
+      color: var(--accent);
+      font-family: "JetBrains Mono", Consolas, monospace;
+      font-size: 0.72rem;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+    }
+
+    .study-status p {
+      margin: 0;
+    }
+
+    .study-status strong {
+      color: var(--text);
+    }
+
     nav {
       display: flex;
       flex-wrap: wrap;
@@ -247,6 +282,15 @@
         controlling source is the submitted Chapters&nbsp;1&ndash;3, and this page reflects it.
         <span class="canonical-date">Last aligned with the proposal: July&nbsp;30, 2026.</span>
       </p>
+      <div class="study-status">
+        <span class="status-flag">Proposal approved &middot; August 13, 2026</span>
+        <p>
+          <strong>The Chapters&nbsp;1&ndash;3 proposal was defended and approved on August&nbsp;13, 2026.</strong>
+          The interview protocols are now being revised for committee review, followed by a small
+          flow pilot with three educators. The IRB application is prepared but has not yet been
+          submitted, so no participant data has been collected and no findings are reported.
+        </p>
+      </div>
       <nav aria-label="Related links">
         <a href="https://micahminer.com/dissertation-research/">micahminer.com dissertation page.</a>
         <a href="https://minerclass.github.io/diss-proposal-defense/">proposal defense studio.</a>
@@ -333,7 +377,7 @@
         </a>
         <a class="route" href="https://minerclass.github.io/diss-proposal-defense/">
           <strong>Proposal Defense Studio.</strong>
-          <span>An interactive Phase 2 workspace for rehearsing claims, examining methodology, preparing for committee questions, and exploring the intellectual history of the study.</span>
+          <span>The workspace built for the August 2026 proposal defense, preserved as a record of the claims, methodology, committee questions, and intellectual history presented to the committee.</span>
         </a>
         <a class="route" href="https://minerclass.github.io/dissertation-proposal-studio/">
           <strong>Pedagogical Friction Studio.</strong>
