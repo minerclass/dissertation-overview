@@ -7,6 +7,13 @@ Live site:
 
 <https://minerclass.github.io/dissertation-overview/>
 
+## Study milestone
+
+Micah passed the Chapters 1-3 dissertation proposal defense on August 13, 2026. The current work is
+to revise the interview-question wording, obtain committee review, rehearse the revised questions
+with three educators to assess conversational flow, and then update the IRB materials. IRB approval,
+formal recruitment, main-study data collection, analysis, and findings remain future gates.
+
 ## Canonical status
 
 Decided July 30, 2026. Every other public artifact in the ecosystem — dashboards, studios,
