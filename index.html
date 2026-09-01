@@ -267,6 +267,236 @@
         grid-template-columns: 1fr;
       }
     }
+
+    /* ---- Shared interaction affordances --------------------------------
+       The page previously had no visible focus style. Every control added
+       below is keyboard-operable, so define one ring once and reuse it. */
+    :focus-visible {
+      outline: 2px solid var(--accent);
+      outline-offset: 3px;
+      border-radius: 4px;
+    }
+
+    /* ---- Convergent design flowchart -----------------------------------
+       Built from semantic HTML rather than a fixed-viewBox SVG so the
+       diagram reflows to a single column on narrow screens and is read in
+       source order by a screen reader. Connectors are decorative only. */
+    .flow {
+      margin-top: 18px;
+    }
+
+    .flow-row {
+      display: grid;
+      gap: 14px;
+    }
+
+    .flow-row.strands {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .flow-node {
+      border: 1px solid var(--line);
+      border-left-width: 3px;
+      border-radius: 8px;
+      background: var(--panel-2);
+      padding: 16px;
+    }
+
+    .flow-node h4 {
+      margin: 0 0 6px;
+      font-size: 1rem;
+      line-height: 1.25;
+      color: var(--text);
+    }
+
+    .flow-node p {
+      margin: 0;
+      font-size: 0.93rem;
+    }
+
+    .flow-node.qual { border-left-color: var(--accent); }
+    .flow-node.quan { border-left-color: var(--link); }
+    .flow-node.merge { border-left-color: var(--accent); background: var(--panel); }
+    .flow-node.nonparticipant { border-left-style: dashed; border-left-color: var(--muted); }
+
+    .flow-tag {
+      display: inline-block;
+      margin-bottom: 8px;
+      padding: 2px 9px;
+      border-radius: 999px;
+      font-family: "JetBrains Mono", Consolas, monospace;
+      font-size: 0.68rem;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+    }
+
+    .tag-qual { background: rgba(74, 222, 128, 0.16); color: var(--accent); }
+    .tag-quan { background: rgba(143, 215, 255, 0.16); color: var(--link); }
+    .tag-neutral { background: rgba(244, 241, 234, 0.1); color: var(--muted); }
+
+    .flow-link {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin: 0;
+      padding: 10px 0;
+      color: var(--muted);
+      font-family: "JetBrains Mono", Consolas, monospace;
+      font-size: 0.72rem;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+    }
+
+    .flow-link::before,
+    .flow-link::after {
+      content: "";
+      flex: 1;
+      height: 1px;
+      background: var(--line);
+    }
+
+    /* ---- Friction matrix ------------------------------------------------
+       Four dimensions, but deliberately not four equals. The framework
+       treats noetic, rhetorical, and existential friction as learner-facing
+       and infrastructural friction as the institutional condition that
+       enables or constrains them, so the infrastructural cell spans the
+       grid and carries its own accent to keep that asymmetry visible. */
+    .matrix-controls {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin: 18px 0 0;
+    }
+
+    .matrix-toggle {
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      background: transparent;
+      color: var(--muted);
+      font: inherit;
+      font-size: 0.88rem;
+      padding: 7px 15px;
+      cursor: pointer;
+    }
+
+    .matrix-toggle:hover {
+      color: var(--text);
+    }
+
+    .matrix-toggle[aria-pressed="true"] {
+      background: rgba(74, 222, 128, 0.14);
+      border-color: var(--accent);
+      color: var(--accent);
+    }
+
+    .matrix {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 14px;
+      margin-top: 14px;
+    }
+
+    .quad {
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: var(--panel-2);
+      padding: 18px;
+    }
+
+    .quad.system {
+      grid-column: 1 / -1;
+      background: var(--panel);
+      border-color: rgba(143, 215, 255, 0.34);
+    }
+
+    .quad-head {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 12px;
+      margin-bottom: 8px;
+    }
+
+    .quad h4 {
+      margin: 0;
+      font-size: 1.05rem;
+      line-height: 1.2;
+      color: var(--text);
+    }
+
+    .quad-role {
+      font-family: "JetBrains Mono", Consolas, monospace;
+      font-size: 0.66rem;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      color: var(--accent);
+      white-space: nowrap;
+    }
+
+    .quad.system .quad-role { color: var(--link); }
+
+    .quad-def {
+      margin: 0 0 10px;
+      font-size: 0.95rem;
+    }
+
+    .quad-consequence {
+      margin: 0;
+      padding-top: 10px;
+      border-top: 1px solid var(--line);
+      font-size: 0.93rem;
+    }
+
+    .proposal-caveat {
+      margin: 16px 0 0;
+      font-size: 0.86rem;
+      font-style: italic;
+    }
+
+    @media (max-width: 900px) {
+      /* minmax(0, 1fr) rather than 1fr: a bare 1fr floors the track at
+         min-content, and the long system-level role label would then push
+         the grid wider than the viewport. */
+      .flow-row.strands,
+      .matrix {
+        grid-template-columns: minmax(0, 1fr);
+      }
+
+      .quad-head {
+        flex-direction: column;
+        gap: 4px;
+      }
+
+      /* The head is stacked here, so the long label can and should wrap. */
+      .quad-role {
+        white-space: normal;
+      }
+    }
+
+    /* Respect a reduced-motion preference across the whole page. */
+    @media (prefers-reduced-motion: reduce) {
+      *,
+      *::before,
+      *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+      }
+    }
+
+    /* Screen-reader-only status text announcing matrix toggle changes. */
+    .sr-only {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      margin: -1px;
+      overflow: hidden;
+      clip: rect(0, 0, 0, 0);
+      white-space: nowrap;
+      border: 0;
+    }
   </style>
 </head>
 <body>
@@ -350,6 +580,110 @@
       </div>
     </div>
 
+    <!-- The four friction dimensions. Definitions here are taken from the
+         controlling Chapters 1-3; the consequence text below each one is an
+         illustrative reading of the framework, not a finding. -->
+    <section style="margin-top: 24px;">
+      <h2>The four dimensions of friction.</h2>
+      <p>The Pedagogical Friction Framework names three learner-facing dimensions and one institutional condition. The fourth is not a peer of the other three. Infrastructural friction is what makes the learner-facing forms possible or impossible, which is why it is shown here as the ground the others stand on rather than as a fourth equivalent box.</p>
+
+      <div class="matrix-controls" role="group" aria-label="Choose which consequences to display">
+        <button type="button" class="matrix-toggle" data-view="classroom" aria-pressed="true">Classroom consequences</button>
+        <button type="button" class="matrix-toggle" data-view="policy" aria-pressed="false">Policy consequences</button>
+      </div>
+      <p class="sr-only" id="matrixStatus" role="status">Showing classroom consequences.</p>
+
+      <div class="matrix">
+        <article class="quad">
+          <div class="quad-head">
+            <h4>Noetic friction.</h4>
+            <span class="quad-role">Learner-facing</span>
+          </div>
+          <p class="quad-def">Preserves necessary cognitive work.</p>
+          <p class="quad-consequence"
+             data-classroom="A generated summary can stand in for the encoding work that makes a reading retrievable weeks later. The artifact is complete; the cognitive trace behind it is thin."
+             data-policy="Pacing calendars and assessment loads that reward finished volume over visible process make cognitive shortcutting the rational choice for students and teachers alike.">A generated summary can stand in for the encoding work that makes a reading retrievable weeks later. The artifact is complete; the cognitive trace behind it is thin.</p>
+        </article>
+
+        <article class="quad">
+          <div class="quad-head">
+            <h4>Rhetorical friction.</h4>
+            <span class="quad-role">Learner-facing</span>
+          </div>
+          <p class="quad-def">Preserves dialogue, audience, critique, and revision.</p>
+          <p class="quad-consequence"
+             data-classroom="When a first draft arrives already polished, peer critique has nothing to grip and revision becomes cosmetic. The argument was never provisional enough to be argued with."
+             data-policy="Professional learning that frames AI purely as a productivity gain, without touching discussion and revision structures, leaves teachers no sanctioned way to slow drafting down.">When a first draft arrives already polished, peer critique has nothing to grip and revision becomes cosmetic. The argument was never provisional enough to be argued with.</p>
+        </article>
+
+        <article class="quad">
+          <div class="quad-head">
+            <h4>Existential friction.</h4>
+            <span class="quad-role">Learner-facing</span>
+          </div>
+          <p class="quad-def">Preserves authorship, accountability, and the relationship between a person and a claim.</p>
+          <p class="quad-consequence"
+             data-classroom="A student can competently present a position they never actually formed. The gap tends to surface only when a follow-up question arrives that the generated text did not anticipate."
+             data-policy="Integrity policy written solely around detection treats authorship as a compliance problem rather than as something a student develops and can be supported in developing.">A student can competently present a position they never actually formed. The gap tends to surface only when a follow-up question arrives that the generated text did not anticipate.</p>
+        </article>
+
+        <article class="quad system">
+          <div class="quad-head">
+            <h4>Infrastructural friction.</h4>
+            <span class="quad-role">System-level &middot; enables or constrains the three above</span>
+          </div>
+          <p class="quad-def">The policy, leadership, professional-learning, assessment, and access conditions that make the learner-facing forms possible.</p>
+          <p class="quad-consequence"
+             data-classroom="Where guidance is absent or unclear, teachers improvise one classroom at a time. The absence of policy is not neutral; it is itself a condition shaping what happens in the room."
+             data-policy="Procurement decisions, device models, assessment mandates, and the clarity of AI policy determine whether friction-preserving pedagogy is actively permitted or merely tolerated.">Where guidance is absent or unclear, teachers improvise one classroom at a time. The absence of policy is not neutral; it is itself a condition shaping what happens in the room.</p>
+        </article>
+      </div>
+
+      <p class="proposal-caveat">The consequences above are illustrative readings of the framework, included to show how the dimensions differ in practice. They are not study findings. No participant data has been collected.</p>
+    </section>
+
+    <!-- Convergent design. Strands run concurrently, are analyzed separately,
+         and meet only at interpretation through joint displays. -->
+    <section style="margin-top: 24px;">
+      <h2>How the strands fit together.</h2>
+      <p>The design is convergent (Creswell &amp; Plano Clark, 2018). The qualitative and quantitative strands run at the same time, are analyzed separately and on their own terms, and are brought together only at interpretation through joint displays organized by the research questions.</p>
+
+      <div class="flow">
+        <div class="flow-row strands">
+          <div class="flow-node qual">
+            <span class="flow-tag tag-qual">QUAL &middot; priority strand</span>
+            <h4>Interviews across four participant perspectives.</h4>
+            <p>Classroom-facing educators, building-level administrators, and district or system-level leaders, with adult university students contributing retrospective learner accounts of late high school as generative AI became publicly available.</p>
+          </div>
+          <div class="flow-node quan">
+            <span class="flow-tag tag-quan">quan &middot; complementary strand</span>
+            <h4>Exploratory educator survey and structural context.</h4>
+            <p>An exploratory K-12 educator survey, with NCES School Pulse Panel and RAND American Educator Panel data supplying structural context rather than claims about this study&rsquo;s participants.</p>
+          </div>
+        </div>
+
+        <p class="flow-link" aria-hidden="true">analyzed separately</p>
+
+        <div class="flow-row">
+          <div class="flow-node merge">
+            <span class="flow-tag tag-neutral">point of integration</span>
+            <h4>Joint displays organized by research question.</h4>
+            <p>The qualitative strand carries priority and the survey strand is complementary, so neither is collapsed into the other during analysis. Integration happens at interpretation, where themes and survey patterns are set side by side and read as converging, diverging, or complementary evidence.</p>
+          </div>
+        </div>
+
+        <p class="flow-link" aria-hidden="true">interpreted alongside, never merged into</p>
+
+        <div class="flow-row">
+          <div class="flow-node nonparticipant">
+            <span class="flow-tag tag-neutral">nonparticipant evidence</span>
+            <h4>AI-generated text and agentic-artifact comparison.</h4>
+            <p>Held deliberately apart from the participant strands and analyzed separately as nonparticipant artifacts. It retains at least one bounded, prespecified agentic-artifact task and is never treated as evidence about human experience.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <section style="margin-top: 24px;">
       <h2>Research questions.</h2>
       <div class="questions">
@@ -405,5 +739,37 @@
       Micah Miner · Public dissertation overview. Updated with the current Chapters 1-3 proposal framing, July 2026.
     </div>
   </footer>
+
+  <script>
+    // Friction matrix consequence toggle. Both variants ship in the markup as
+    // data attributes, so the default classroom view is already correct before
+    // this script runs and stays readable if it never does. Native buttons
+    // give Enter/Space handling and focus order without extra key wiring.
+    (function () {
+      var matrix = document.querySelector(".matrix");
+      if (!matrix) return;
+
+      var statusEl = document.getElementById("matrixStatus");
+      var buttons = Array.prototype.slice.call(document.querySelectorAll(".matrix-toggle"));
+      var cells = Array.prototype.slice.call(matrix.querySelectorAll(".quad-consequence"));
+
+      function show(view) {
+        cells.forEach(function (cell) {
+          var next = cell.getAttribute("data-" + view);
+          if (next) cell.textContent = next;
+        });
+        buttons.forEach(function (btn) {
+          btn.setAttribute("aria-pressed", btn.getAttribute("data-view") === view ? "true" : "false");
+        });
+        if (statusEl) statusEl.textContent = "Showing " + view + " consequences.";
+      }
+
+      buttons.forEach(function (btn) {
+        btn.addEventListener("click", function () {
+          show(btn.getAttribute("data-view"));
+        });
+      });
+    })();
+  </script>
 </body>
 </html>
