@@ -5,6 +5,20 @@ credentials, or tokens.
 
 ---
 
+## 2026-08-31 - Adopt the shared ecosystem design tokens
+
+Links https://minerclass.github.io/tokens.css before the inline styles and points the
+ground, panels, ink, muted, and rules at the shared tokens. The dark ground is unchanged
+in character. The green `--accent` and blue `--link` stay local.
+
+Every reference carries a fallback equal to the pre-adoption value, so a failed token
+load leaves the page exactly as it was.
+
+**Verified.** 102 text-bearing elements probed against their composited backdrops:
+**zero** failures both with and without the token sheet. Tightest pair 5.18 against 4.5.
+
+---
+
 ## 2026-08-31 — Friction matrix and convergent-design flowchart
 
 **Context.** Worked from an agent handoff document titled "Dissertation Repositories
