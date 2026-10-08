@@ -10,9 +10,9 @@ Live site:
 ## Study milestone
 
 Micah passed the Chapters 1-3 dissertation proposal defense on August 13, 2026. NLU IRB approved
-the study as Exempt on October 7, 2026 (protocol ER01884), through October 7, 2027. Formal
-recruitment, main-study data collection, analysis, and findings have not begun. Instruments still
-need to be matched to the approved packet before use.
+the study as Exempt on October 7, 2026 (protocol ER01884), through October 7, 2027. Interview and
+survey-review invitations are open. The anonymous survey is not open until the approved form is
+live. No findings are reported.
 
 ## Canonical status
 
